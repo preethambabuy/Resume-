@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- The <head> holds information about the page that visitors don't see directly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preetham Babu Y | Resume</title>
+
+  <style>
+    /* ============================================
+       CSS = the styling rules (colors, spacing, fonts)
+       Each rule looks like:  selector { property: value; }
+       ============================================ */
+
+    /* "html" is the whole page. smooth makes the anchor links glide down instead of jumping */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* "body" is everything you see on the page */
+    body {
+      font-family: Arial, sans-serif;  /* The font used for all text */
+      background-color: white;         /* White page background */
+      color: #222222;                  /* Dark gray text is easier to read than pure black */
+      margin: 0;                       /* Remove the browser's default space around the page */
+      line-height: 1.5;                /* Space between lines of text */
+    }
+
+    /* ---------- NAVIGATION BAR ---------- */
+    /* "nav" is the bar at the top with the links */
+    nav {
+      background-color: #4a6fa5;       /* Our one main color: a soft blue */
+      padding: 10px;
+      text-align: center;
+      position: sticky;                /* Keeps the bar at the top while you scroll */
+      top: 0;
+    }
+
+    /* Style for the links inside the navigation bar */
+    nav a {
+      color: white;                  /* White text so it's easy to read on the blue bar */
+      text-decoration: none;           /* Removes the underline */
+      margin: 0 10px;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    /* HOVER EFFECT: ":hover" applies when the mouse is over the link */
+    nav a:hover {
+      background-color: #3b5b8c;       /* A slightly darker blue */
+    }
+
+    /* ---------- HEADER (name and tagline) ---------- */
+    header {
+      text-align: center;
+      padding: 30px 20px 10px 20px;    /* top, right, bottom, left */
+    }
+
+    /* This box holds the photo and the name. "display: flex" puts them side by side in a row (photo on the left, name on the right) */
+    .header-top {
+      display: flex;
+      flex-direction: row;             /* row = side by side */
+      align-items: center;             /* Lines the name up with the middle of the photo */
+      justify-content: center;         /* Centers the whole row on the page */
+    }
+
+    header h1 {
+      color: #4a6fa5;
+      margin: 0;
+    }
+
+    /* The profile photo next to my name */
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;                  /* Stops the photo from getting squished on small screens */
+      object-fit: cover;               /* Crops the photo to fill the circle without squishing it */
+      border-radius: 50%;              /* 50% turns a square into a circle */
+      border: 3px solid #4a6fa5;
+      margin-right: 15px;              /* Space between the photo and my name */
+    }
+
+    /* ---------- MAIN SECTIONS ---------- */
+    /* Every <section> gets the same width and spacing */
+    section {
+      max-width: 800px;                /* Stops the text from getting too wide */
+      margin: 0 auto;                  /* "auto" on the sides centers the section */
+      padding: 20px;
+    }
+
+    /* A little extra space so the sticky nav bar doesn't cover the section title when we jump to it */
+    section {
+      scroll-margin-top: 50px;
+    }
+
+    h2 {
+      color: #4a6fa5;
+      border-bottom: 2px solid #4a6fa5;   /* A simple line under each section title */
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #4a6fa5;
+    }
+
+    /* Links in the main page */
+    a {
+      color: #4a6fa5;
+    }
+
+    a:hover {
+      background-color: #e8eef7;       /* HOVER EFFECT: light blue behind the link */
+    }
+
+    /* ---------- SKILL BOXES ---------- */
+    /* The little boxes that hold each skill */
+    .skill-box {
+      display: inline-block;           /* Lets the boxes sit side by side */
+      border: 2px solid #4a6fa5;
+      border-radius: 6px;
+      padding: 6px 12px;
+      margin: 5px;
+      background-color: white;
+    }
+
+    /* HOVER EFFECT: the box turns light blue when the mouse touches it */
+    .skill-box:hover {
+      background-color: #e8eef7;
+    }
+
+    /* The bigger boxes in the "Unofficially" section */
+    .fun-box {
+      border: 2px solid #4a6fa5;
+      border-radius: 6px;
+      padding: 10px 15px;
+      margin: 10px 0;
+      background-color: white;
+    }
+
+    .fun-box:hover {
+      background-color: #e8eef7;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    /* Both the "Hire Me (Please)" link and the print button use this style */
+    .button {
+      display: inline-block;
+      background-color: #4a6fa5;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 18px;
+      margin: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      cursor: pointer;                 /* Shows the hand pointer on hover */
+    }
+
+    /* HOVER EFFECT: the button gets a darker blue */
+    .button:hover {
+      background-color: #3b5b8c;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      color: gray;
+      padding: 20px;
+    }
+
+    /* ---------- PRINT STYLES ---------- */
+    /* These rules only apply when printing. We hide the nav bar and buttons so the paper copy looks clean. */
+    @media print {
+      nav, .button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <!-- Each link points to a section's id (see id="about" etc. below). The # means "jump to this id on the same page" -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <!-- This div holds the photo and the name so they sit side by side -->
+    <div class="header-top">
+      <!-- <img> shows a picture. The long text in src is the photo saved inside this file, so you don't need a separate image file. alt describes the photo for people who can't see it -->
+      <img class="profile-pic" src="data:image/jpeg;base64,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" alt="Photo of Preetham Babu Y">
+      <h1>Preetham Babu Y</h1>
+    </div>
+    <p>Business analyst in training. Professional at turning chaos into a schedule.</p>
+  </header>
+
+  <hr>
+
+  <!-- ============ ABOUT SECTION ============ -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      First-year BBA student at IIM Bangalore with hands-on experience in event planning,
+      team leadership, and creative projects. Currently looking for a business analyst internship.
+    </p>
+
+    <h3>Education</h3>
+    <!-- <ul> is an unordered (bullet) list. Each <li> is one bullet -->
+    <ul>
+      <li><strong>BBA (1st year)</strong>, IIM Bangalore</li>
+      <li><strong>Class 12</strong>, St. Joseph’s School (CBSE)</li>
+      <li><strong>Class 10</strong>, VSS International Public School</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ============ SKILLS SECTION ============ -->
+  <section id="skills">
+    <h2>Things I’m Good At (Officially)</h2>
+    <!-- Each skill is a <span> with the class "skill-box" so the CSS above can style it -->
+    <span class="skill-box">Event planning</span>
+    <span class="skill-box">Team leadership</span>
+    <span class="skill-box">Meeting deadlines</span>
+    <span class="skill-box">Teamwork</span>
+    <span class="skill-box">Communication</span>
+    <span class="skill-box">Coordination</span>
+    <span class="skill-box">Time management</span>
+    <span class="skill-box">Problem solving</span>
+    <span class="skill-box">Quick learning</span>
+    <span class="skill-box">Storytelling</span>
+    <span class="skill-box">Photography</span>
+    <span class="skill-box">Typing 50+ WPM</span>
+
+    <h3>Languages</h3>
+    <span class="skill-box">English</span>
+    <span class="skill-box">Hindi</span>
+    <span class="skill-box">Telugu</span>
+    <span class="skill-box">Kannada</span>
+    <span class="skill-box">Italian (learning, A1)</span>
+
+    <!-- The "unofficial" skills live in the same section so the nav link still works -->
+    <h2>Things I’m Good At (Unofficially)</h2>
+    <p>Skills that won’t get me hired, but will make me fun at any party.</p>
+
+    <div class="fun-box">
+      <strong>Brain Games</strong>
+      <ul>
+        <li>Solves a Rubik’s cube in under a minute</li>
+        <li>1000+ rating on chess.com</li>
+        <li>“Better than 99% of players” on every sudoku.com level, including Extreme</li>
+        <li>Can name the day of the week for any date in any year</li>
+      </ul>
+    </div>
+
+    <div class="fun-box">
+      <strong>World Stuff</strong>
+      <ul>
+        <li>Can name almost every country on the world map</li>
+        <li>Learnt Morse code (so if the internet goes down, I’m fine)</li>
+      </ul>
+    </div>
+
+    <div class="fun-box">
+      <strong>Music and Dance</strong>
+      <ul>
+        <li>Plays the guitar, keyboard, and flute</li>
+        <li>Has danced in many events and performances</li>
+      </ul>
+    </div>
+
+    <div class="fun-box">
+      <strong>Kitchen and Craft</strong>
+      <ul>
+        <li>Bakes a variety of items</li>
+        <li>Crochets</li>
+        <li>Wants to take a culinary course one day</li>
+      </ul>
+    </div>
+
+    <div class="fun-box">
+      <strong>Nerd Zone</strong>
+      <ul>
+        <li>Incredible nerd about movies, music, and comics</li>
+        <li>Reads novels, currently juggling 3 books at once</li>
+        <li>Always discovering new ways to hobbymaxx</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ============ PROJECTS SECTION ============ -->
+  <section id="projects">
+    <h2>Projects and Experience</h2>
+
+    <h3>Leadership and Events</h3>
+    <ul>
+      <li><strong>Sports Captain:</strong> hosted 4+ school sports events</li>
+      <li><strong>Event head, school filmmaking event (Class 12):</strong> led a team of 20 students and managed 50+ participants</li>
+      <li>Co-hosted 3 school events</li>
+      <li><strong>Event photographer (freelance):</strong> covered a MUN conference</li>
+      <li>Volunteered at a school event (Class 11) and took part in NGO events</li>
+    </ul>
+
+    <h3>Creative Projects</h3>
+    <ul>
+      <li>Directed 2 short films</li>
+      <li>Wrote 3+ film scripts</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- ============ CONTACT SECTION ============ -->
+  <section id="contact">
+    <h2>How to Reach Out</h2>
+
+    <!-- A normal link: href is the address it goes to -->
+    <p>
+      <a href="https://www.linkedin.com/in/preetham-babu-yarabolu-763299420">LinkedIn</a>
+      <!-- "mailto:" opens the visitor's email app with my address filled in -->
+      <a class="button" href="mailto:preethambabuy@gmail.com">Hire Me (Please)</a>
+    </p>
+
+    <p>Email: <a href="mailto:preethambabuy@gmail.com">preethambabuy@gmail.com</a></p>
+
+    <p>Judge my movie taste: <a href="https://boxd.it/ejhSz">Letterboxd</a></p>
+
+    <!-- onclick runs a tiny bit of JavaScript when the button is clicked. window.print() opens the print window -->
+    <button class="button" onclick="window.print()">Print Me</button>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p>Built by Preetham with plain HTML and CSS.</p>
+  </footer>
+
+</body>
+</html>
